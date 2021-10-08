@@ -1,0 +1,44 @@
+<section fxLayout="column">
+    <div>
+        <h1>Sign Up</h1>
+    </div>
+    <div class="form">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm.value)" fxlayout="column">
+            <input type="hidden" formControlName="id">
+            <div fxLayout="row">
+                <mat-form-field class="width-50">
+                    <mat-label>First Name</mat-label>
+                    <input type="text" formControlName="firstName" matInput>
+                </mat-form-field>
+                <mat-form-field class="width-50">
+                    <mat-label>Last Name</mat-label>
+                    <input type="text" formcontrolName="lastName" matInput>
+                </mat-form-field>
+            </div>
+             
+            
+                    <mat-form-field class="width-100">
+                        <mat-label>Date of Birth</mat-label>
+                        <input type="text" formControlName="dob" matInput>
+                    </mat-form-field>
+                    <mat-form-field class="width-100">
+                        <mat-label>Email</mat-label>
+                        <input type="email" formControlName="email" matInput>
+                    </mat-form-field>
+                    <mat-form-field class="width-100">
+                        <mat-label>Password</mat-label>
+                        <input type="password" formControlName="password" matInput>
+                    </mat-form-field>
+                    <!-- <mat-form-field class="width-100">
+                        <mat-label>Confirm Password</mat-label>
+                        <input type="password" matInput>
+                    </mat-form-field> -->
+               
+                    <button type="submit">Register</button>
+                
+                <div>
+                    <a routerLink="/signin"> Already have an Account</a>
+                </div>
+        </form>
+    </div>
+</section>

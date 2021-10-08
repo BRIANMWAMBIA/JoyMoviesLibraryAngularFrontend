@@ -1,0 +1,23 @@
+<section fxLayout="column">
+    <div>
+        <h1>SIGN IN</h1>
+    </div>
+    <div>
+        <form [formGroup]="loginForm" (ngSubmit)="signin(loginForm.value)" fxLayout="column">
+            <mat-form-field fxLayout="column">
+                <mat-label>Email</mat-label>
+                <input type="text" formControlName="email" matInput>
+            </mat-form-field>
+            <mat-form-field fxLayout="column">
+                <mat-label>Password</mat-label>
+                <input type="text" formControlName="password" matInput>
+            </mat-form-field> 
+            <div class="btn" fxLayout>
+                <button type="submit"> Login</button>
+            </div>
+            <div>
+                <a routerLink="/signup">Don't have an Account</a>
+            </div>
+        </form>
+    </div>
+</section>

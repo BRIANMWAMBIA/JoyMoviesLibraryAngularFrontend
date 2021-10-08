@@ -1,0 +1,49 @@
+
+section {
+    justify-content: center;
+    align-items: center;
+
+    min-height: 100vh;
+    background-color: rgb(222, 222, 222);
+}
+
+.container {
+    height: 640px;
+    width: 360px;
+    background-color: rgb(226, 226, 226);
+}
+.title {
+    margin-top: 10px;
+    height: 100px;
+    width: 360px;
+    justify-content: space-around;
+    align-items: center;
+}
+.header {
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+}
+.list { 
+    margin-top: 2px;
+    
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+}
+.books {
+    justify-content: center;
+    
+}
+.add {
+    justify-content: flex-end;
+
+}
+.ol{
+    justify-content: space-around;
+    align-items: space-around;
+    width: 100%;
+}
+h3{
+    color: rgba(11, 11, 161, 0.849) ;
+}

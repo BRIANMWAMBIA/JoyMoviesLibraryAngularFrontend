@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "my-library-82274": {
+      "hosting": {
+        "Frontend": [
+          "my-library-82274"
+        ]
+      }
+    }
+  }
+}

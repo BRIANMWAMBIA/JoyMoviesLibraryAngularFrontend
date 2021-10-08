@@ -1,0 +1,21 @@
+section{
+    justify-content: center;
+    align-items: center;
+}
+
+.width-100{ width: 100%;}
+.width-50 {
+    width: 49%;
+}
+
+.form {
+    width: 360px;
+    height: 631px;
+    justify-content: center;
+    align-items: space-around;
+}
+form{
+    min-width: 18rem !important;
+    max-width: 22rem !important;
+    min-height: 100%;
+}

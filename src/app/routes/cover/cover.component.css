@@ -1,0 +1,16 @@
+section{
+    justify-content: center;
+    align-items: center;
+}
+.container{
+    width: 360px;
+    height: 640px;
+    background-image: url("/assets/cover-page.jpg");
+}
+.auth {
+    justify-content: flex-end;
+    align-items: flex-end;
+    color:red;
+    width: 270px;
+}
+

@@ -1,0 +1,11 @@
+section {
+    justify-content: center;
+    align-items: center;
+}
+.movie{
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: space-evenly;
+}
+
+
