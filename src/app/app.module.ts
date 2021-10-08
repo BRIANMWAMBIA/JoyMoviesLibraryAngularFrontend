@@ -22,7 +22,8 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from '../environments/environment';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
-import { AngularFireDatabaseModule } from '@angular/fire/compat/database'
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { NavabarComponent } from './shared/services/components/navabar/navabar.component'
 // import { AuthRoutingModule } from './auth-routing.module';
 // import { AuthModule } from './routes/auth/auth.module';
 //import { AuthModule } from './routes/auth/auth.module';
@@ -38,6 +39,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database'
    
     MovieDetailsComponent,
   HomeComponent,
+  NavabarComponent,
    
   ],
   imports: [
