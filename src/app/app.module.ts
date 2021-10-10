@@ -53,7 +53,7 @@ import { NavabarComponent } from './shared/services/components/navabar/navabar.c
    HttpClientModule,
    ReactiveFormsModule,
    FormsModule,
-   AngularFireModule.initializeApp(environment.firebase),
+   AngularFireModule.initializeApp(environment.firebase,"My Library"),
    AngularFireDatabaseModule,
    AngularFireAuthModule,
    AngularFirestoreModule
