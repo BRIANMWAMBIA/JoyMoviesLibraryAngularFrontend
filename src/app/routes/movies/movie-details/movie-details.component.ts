@@ -9,7 +9,6 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./movie-details.component.css']
 })
 export class MovieDetailsComponent implements OnInit {
-  //  @Input() movieId!: any;
     movie!: any;
   constructor(
     private _moviesservice: MoviesService,

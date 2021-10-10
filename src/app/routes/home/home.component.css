@@ -7,7 +7,6 @@ section{
     margin-bottom: 2rem;
     padding-bottom: 2.5rem;
 }
-
 .main-container{
     justify-content: space-around;
      align-items:center ;
@@ -15,11 +14,9 @@ section{
     height: 640px;
     padding: 1rem;
     background-image: url("/assets/digital-lib.jpg");
-
 }
 .assets {
-    justify-content: center;
-    
+    justify-content: center;    
     width: 138px;
     height: 77px;
     background-color: rgba(196, 196, 196, 1);

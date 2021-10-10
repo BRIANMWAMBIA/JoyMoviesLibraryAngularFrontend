@@ -4,9 +4,8 @@
             <span style="color: rgba(100, 100, 100); font-size: 30px;">New Movie</span>
         </div>
         <div class="form" fxLayout>
-            <form [formGroup]="movieForm" (ngSubmit)="submitForm(movieForm.value)"
-                fxLayout="column">
-                <input type="hidden" formControlName="id" >
+            <form [formGroup]="movieForm" (ngSubmit)="submitForm(movieForm.value)" fxLayout="column">
+                <input type="hidden" formControlName="id">
                 <mat-form-field class="input width-100" fxLayout="column">
                     <mat-label>Title</mat-label>
                     <input type="text" formControlName="title" matInput>
@@ -27,19 +26,13 @@
                     <mat-label>Description</mat-label>
                     <input type="text" formControlName="description" matInput>
                 </mat-form-field>
-    
-    
                 <div class="btn" fxLayout>
                     <button class="save" type="submit"> Save</button>
                 </div>
                 <div class="back" fxLayout>
                     <a routerLink="/Movies">Back to List</a>
                 </div>
-               
             </form>
-            
         </div>
     </div>
-   
-    
 </section>

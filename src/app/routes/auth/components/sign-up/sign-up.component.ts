@@ -27,8 +27,6 @@ export class SignUpComponent implements OnInit {
       dob: ['', {validators: [ Validators.required ]}],
       email: ['',{validators: [ Validators.required, Validators.email ], updateOn: "change"}],
       password: ['', {validators: [ Validators.required ]}]
-     
-
     })
   }
 onSubmit(form: any) {

@@ -33,11 +33,9 @@ section {
 }
 .books {
     justify-content: center;
-    
 }
 .add {
     justify-content: flex-end;
-
 }
 .ol{
     justify-content: space-around;

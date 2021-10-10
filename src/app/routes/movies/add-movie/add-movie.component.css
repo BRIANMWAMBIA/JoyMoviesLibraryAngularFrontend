@@ -10,16 +10,16 @@ section {
     justify-content: center;
     align-items: center;
     background-color: rgba(222, 222, 222, 1);
-    
 }
-.container{
+
+.container {
     justify-content: center;
     align-items: center;
     background-color: rgba(226, 226, 226, 1);
 }
+
 .input {
     margin-top: 15px;
-    
     width: 317px;
     height: 78px;
 }
@@ -34,11 +34,13 @@ input {
     justify-content: center;
     align-items: space-around;
 }
-form{
+
+form {
     min-width: 18rem !important;
     max-width: 22rem !important;
     min-height: 100%;
 }
+
 .btn {
     color: #FFFFFF;
     cursor: pointer;
@@ -54,21 +56,24 @@ form{
     font-weight: 900;
     line-height: 24px;
     text-align: center;
-justify-content: center;
-align-items: center;
+    justify-content: center;
+    align-items: center;
     margin-top: 8px;
 }
-.save{
+
+.save {
     background: none;
     border: none;
     outline: none;
     color: #FFFFFF;
     font-size: medium;
 }
-.back{
+
+.back {
     justify-content: center;
     align-items: center;
 }
-.head{
+
+.head {
     margin-top: 80px;
 }

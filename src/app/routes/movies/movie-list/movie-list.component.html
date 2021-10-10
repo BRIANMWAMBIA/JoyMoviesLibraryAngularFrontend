@@ -2,7 +2,6 @@
     <div class="container" fxLayout="column">
         <div class="title" fxLayout>
             <span style="font-size: 30px; color:rgb(100, 100, 100);">Movies</span>
-
         </div>
         <div fxLayout class="add">
             <span><a routerLink="/Create">
@@ -13,35 +12,20 @@
             <h3>Title</h3>
             <h3>Main-Actor</h3>
         </div>
-
-
         <li *ngIf="!isempty" class="list" fxLayout="column">
             <ol class="ol" *ngFor="let movie of mlist" fxLayout="row">
-                <span style="cursor: pointer; color: rgba(0, 0, 0, 0.5);" (click)="getDetails(movie.Id)">{{movie.Title}}</span>
+                <span style="cursor: pointer; color: rgba(0, 0, 0, 0.5);"
+                    (click)="getDetails(movie.Id)">{{movie.Title}}</span>
                 <span style="color: #3b3b3b;">{{movie.Main_Actor}}</span>
-
                 <mat-icon style="cursor: pointer;" (click)="deleteMovie(movie.Id)">delete</mat-icon>
                 <mat-icon style="cursor: pointer;" (click)="editMovie(movie.Id)">create</mat-icon>
-                <!-- <app-edit-movie *ngif="isedit" [movieId]="movie.Id"></app-edit-movie> -->
-                <!-- <app-movie-details *ngIf="ismovieclickede.Id"></app-movie-details> -->
-               
-    
-                
             </ol>
-
-           
-
         </li>
         <div class="books" fxLayout>
-          <h1 *ngIf="isempty">No movies</h1>
+            <h1 *ngIf="isempty">No movies</h1>
         </div>
-        
         <div class="books" fxLayout>
             <a routerLink="/home">BOOKS</a>
         </div>
-
     </div>
-
-
-
 </section>
