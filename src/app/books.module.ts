@@ -11,6 +11,7 @@ import { BookDetailsComponent } from './routes/books/book-details/book-details.c
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule } from '@angular/common/http';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { SharedComponentsModule } from './shared-components/shared-components.module';
 
 
 
@@ -26,6 +27,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     ReactiveFormsModule,
     FormsModule,
     SharedMaterialModule,
+    SharedComponentsModule,
     FlexLayoutModule,
     
     

@@ -1,5 +1,6 @@
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, SelectControlValueAccessor } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth'
 
@@ -13,7 +14,8 @@ export class SignInComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private auth: AngularFireAuth,
-   private router: Router
+   private router: Router,
+   private snackbar: MatSnackBar
   ) { }
 
   ngOnInit(): void {
@@ -27,7 +29,11 @@ export class SignInComponent implements OnInit {
   }
 signin(form: any){
   this.auth.signInWithEmailAndPassword(form.email,form.password).then(user=>{
+    this.snackbar.open("Logged In", "success", { duration: 3000, panelClass: ['green-snackbar'] } )
     this.router.navigate(['/home']);
+  }).catch(err => {
+    if(err.code=== "auth/invalid-email" || err.code==="auth/wrong-password")
+    this.snackbar.open("Check your credentials and try again", "failed",{duration: 5000, panelClass:['green-snackbar']})
   })
 }
 }

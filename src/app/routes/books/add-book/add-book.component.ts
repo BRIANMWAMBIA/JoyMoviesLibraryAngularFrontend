@@ -1,3 +1,4 @@
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { IMovies } from './../../../shared/models/movie.Interface';
 
 import { Component, OnInit } from '@angular/core';
@@ -11,7 +12,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class AddBookComponent implements OnInit {
 bookForm!: FormGroup;
   constructor(private _bookServices: BooksService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private snackbar: MatSnackBar
     ) { }
 
   ngOnInit(): void {
@@ -29,6 +31,8 @@ bookForm!: FormGroup;
   }
   submitForm( movie: IMovies) {
     this._bookServices.addNew(movie).subscribe(res=>{
+      this.snackbar.open("Submitted Successfully", "Success", {duration: 5000})
+this.initForm();
 
     },
     err=>{

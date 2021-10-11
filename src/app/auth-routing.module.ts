@@ -7,9 +7,8 @@ import { SignInComponent } from './routes/auth/components/sign-in/sign-in.compon
 import { CoverComponent } from './routes/cover/cover.component';
 
 const routes: Routes=[
-  {  path: '', component: CoverComponent},
-
-  // { path: '', component:  SignInComponent},
+  // {  path: '', component: CoverComponent},
+   { path: '', component:  SignInComponent},
   {path: 'signin', component: SignInComponent},
   { path: 'signup', component: SignUpComponent }
 ]

@@ -23,7 +23,9 @@ import { environment } from '../environments/environment';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
-import { NavabarComponent } from './shared/services/components/navabar/navabar.component'
+
+import { NavBarComponent } from './shared/components/nav-bar/nav-bar.component'
+import { SharedComponentsModule } from './shared-components/shared-components.module';
 // import { AuthRoutingModule } from './auth-routing.module';
 // import { AuthModule } from './routes/auth/auth.module';
 //import { AuthModule } from './routes/auth/auth.module';
@@ -38,8 +40,8 @@ import { NavabarComponent } from './shared/services/components/navabar/navabar.c
     MovieListComponent,
    
     MovieDetailsComponent,
-  HomeComponent,
-  NavabarComponent,
+  HomeComponent
+  
    
   ],
   imports: [
@@ -56,7 +58,8 @@ import { NavabarComponent } from './shared/services/components/navabar/navabar.c
    AngularFireModule.initializeApp(environment.firebase,"Frontend"),
    AngularFireDatabaseModule,
    AngularFireAuthModule,
-   AngularFirestoreModule
+   AngularFirestoreModule,
+   SharedComponentsModule
   
   ],
   providers: [MoviesService,BooksService],

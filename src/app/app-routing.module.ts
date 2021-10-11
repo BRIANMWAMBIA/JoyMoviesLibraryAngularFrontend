@@ -11,9 +11,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { AngularFireAuthGuard } from '@angular/fire/compat/auth-guard';
 
 const routes: Routes = [
-  { path: '', loadChildren: () => import('./routes/auth/auth.module').then(m => m.AuthModule)},
+  { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
+   { path: 'auth', loadChildren: () => import('./routes/auth/auth.module').then(m => m.AuthModule)},
   {path: 'books', loadChildren: () => import('./books.module').then(m=>m.BooksModule), canActivate: [AngularFireAuthGuard]},
-  { path: 'home', component: HomeComponent, canActivate: [AngularFireAuthGuard] },
+
   { path: 'Create',component: AddMovieComponent, canActivate: [AngularFireAuthGuard] },
   { path: 'Create/:id',component: AddMovieComponent,canActivate: [AngularFireAuthGuard] },
 

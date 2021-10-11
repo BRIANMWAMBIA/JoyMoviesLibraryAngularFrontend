@@ -1,5 +1,5 @@
 export interface IMovies {
-Id?: number,
+Id?: string,
 Title: string,
 Category: string,
 type: string,

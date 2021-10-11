@@ -1,0 +1,36 @@
+
+    <nav fxLayout>
+        <ul class="bottom_nav_item" fxLayout>
+            <li>
+                <a class="nav_item" fxLayout="column" [routerLink]="['/Create']">
+                    <mat-icon>redeem</mat-icon>
+                    <span>Add book</span>
+                </a>
+            </li>
+            <li>
+                <a routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="nav_item" fxLayout="column" [routerLink]="['/Create']">
+                    <mat-icon>redeem</mat-icon>
+                    <span>Add Movie</span>
+                </a>
+            </li>
+            <li>
+                <a routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="nav_item" fxLayout="column" [routerLink]="['/Movies']">
+                    <mat-icon>redeem</mat-icon>
+                    <span>Movies</span>
+                </a>
+            </li>
+            <li>
+                <a routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="nav_item" fxLayout="column" [routerLink]="['/books']">
+                    <mat-icon>redeem</mat-icon>
+                    <span>Books</span>
+                </a>
+            </li>
+            <li>
+                <a routerLinkActive="active"  class="nav_item" fxLayout="column">
+                    <mat-icon>redeem</mat-icon>
+                    <span (click)="logout()">Log out</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+

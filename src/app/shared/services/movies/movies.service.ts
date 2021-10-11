@@ -3,14 +3,20 @@ import { IMovies } from '../../models/movie.Interface';
 
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { observable } from 'rxjs';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Observable } from 'rxjs';
+import { AngularFirestore ,AngularFirestoreCollection, AngularFirestoreDocument} from '@angular/fire/compat/firestore';
+import { map } from 'rxjs/operators';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class MoviesService {
   // movieDetails!: IMovies;
+  movieCollection!: AngularFirestoreCollection<IMovies>;
+  movieDoc!: AngularFirestoreDocument;
+  MovieList!: Observable<IMovies[]>;
+  
   // readonly url = 'https://localhost:44378/api';
   // constructor(private http: HttpClient) { }
 
@@ -51,25 +57,40 @@ export class MoviesService {
 
   // }
 
-  constructor(public afs: AngularFirestore){}
+  constructor(public afs: AngularFirestore){ 
+    this.movieCollection= this.afs.collection<IMovies>('Movies');
+  }
 
   addNew(movie:any) {
-    console.log("from movie service");
-    console.log(movie);
-    return this.afs.collection('Movies').add(movie).catch(err=>{
+    //console.log("from movie service");
+    //console.log(movie);
+    return this.movieCollection.add(movie).catch(err=>{
       console.log(err);
     });
   }
   getAll() {
-    return this.afs.collection<IMovies>('Movies').snapshotChanges()
+   // return this.afs.collection<IMovies>('Movies').valueChanges();
+   return this.movieCollection.snapshotChanges().pipe(
+     map(actions => actions.map(a =>{
+       const data = a.payload.doc.data() as IMovies;
+       data.Id= a.payload.doc.id;
+       return data;
+     })))
+   
+
+
+   
   }
   getById(id: string) {
-
+    this.movieDoc=this.afs.doc(`Movies/${id}`);
+    return this.movieDoc.valueChanges();
   }
-  updateMovie(movie: IMovies) {
-    
+  editMovie(id: string,movie: IMovies) {
+    this.movieDoc=this.afs.doc(`Movies/${id}`);
+    this.movieDoc.update(movie);
   }
-  deleteMovie(id: string){
-
+  deleteMovie(id: any){
+this.movieDoc=this.afs.doc(`Movies/${id}`);
+return this.movieDoc.delete()
   }
 }

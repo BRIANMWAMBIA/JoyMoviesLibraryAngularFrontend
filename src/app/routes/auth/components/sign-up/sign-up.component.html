@@ -15,26 +15,26 @@
                     <input type="text" formcontrolName="lastName" matInput>
                 </mat-form-field>
             </div>
-             
-            
-                    <mat-form-field class="width-100">
-                        <mat-label>Date of Birth</mat-label>
-                        <input type="text" formControlName="dob" matInput>
-                    </mat-form-field>
-                    <mat-form-field class="width-100">
-                        <mat-label>Email</mat-label>
-                        <input type="email" formControlName="email" matInput>
-                    </mat-form-field>
-                    <mat-form-field class="width-100">
-                        <mat-label>Password</mat-label>
-                        <input type="password" formControlName="password" matInput>
-                    </mat-form-field>
-            
-                    <button type="submit">Register</button>
-                
-                <div>
-                    <a routerLink="/signin"> Already have an Account</a>
-                </div>
+
+
+            <mat-form-field class="width-100">
+                <mat-label>Date of Birth</mat-label>
+                <input type="text" formControlName="dob" matInput>
+            </mat-form-field>
+            <mat-form-field class="width-100">
+                <mat-label>Email</mat-label>
+                <input type="email" formControlName="email" matInput>
+            </mat-form-field>
+            <mat-form-field class="width-100">
+                <mat-label>Password</mat-label>
+                <input type="password" formControlName="password" matInput>
+            </mat-form-field>
+            <div class="center btn" fxLayout>
+                <button class="save" type="submit">Register</button>
+            </div>
+            <div class="center" fxLayout>
+                <a routerLink="/signin"> Already have an Account?Sign In</a>
+            </div>
         </form>
     </div>
 </section>

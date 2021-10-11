@@ -9,25 +9,29 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./movie-details.component.css']
 })
 export class MovieDetailsComponent implements OnInit {
-    movie!: any;
+    movie: any;
   constructor(
     private _moviesservice: MoviesService,
    private route: ActivatedRoute
     ) { }
 
   ngOnInit(): void {
-    // this.getDetails();
+    
+    this.getDetails();
   }
 
-  // getDetails() {
+  getDetails() {
+ 
+    const id=  this.route.snapshot.params.id;
+   this._moviesservice.getById(id).subscribe(res=>{
+     this.movie=res;
   
-  //   const id =  this.route.snapshot.params.id;
-  //  this._moviesservice.getById(id).subscribe(
-  //    res=>{
-  //      this.movie=res;
-  //     // console.log(this.movie);
-  //    });
-   
-  // }
+   },
+   err=>{
+     console.log(err)
+   }
+   )
+      //console.log(this.movie); 
+  }
 
 }

@@ -13,6 +13,7 @@
             <h3>Main-Actor</h3>
         </div>
         <li *ngIf="!isempty" class="list" fxLayout="column">
+            
             <ol class="ol" *ngFor="let movie of mlist" fxLayout="row">
                 <span style="cursor: pointer; color: rgba(0, 0, 0, 0.5);"
                     (click)="getDetails(movie.Id)">{{movie.Title}}</span>
@@ -29,3 +30,4 @@
         </div>
     </div>
 </section>
+<app-nav-bar></app-nav-bar>

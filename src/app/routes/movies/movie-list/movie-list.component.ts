@@ -1,7 +1,9 @@
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router, Routes } from '@angular/router';
 import { IMovies } from '../../../shared/models/movie.Interface';
 import { MoviesService } from '../../../shared/services/movies/movies.service';
 import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-movie-list',
@@ -14,44 +16,43 @@ export class MovieListComponent implements OnInit {
    
    movieDetails!: IMovies;
   
-  constructor(private _moviesservice: MoviesService, private router: Router) { }
+  constructor(
+    private _moviesservice: MoviesService,
+     private router: Router,
+     private snackbar: MatSnackBar
+     ) { }
 
   ngOnInit(): void {
-    // this.getMovies();
+    this.getMovies();
   }
 
-//   getMovies() {
-//     //this.movies.getAll()
-//     this._moviesservice.getAll().subscribe(
-//       res => {
-//         this.mlist = res ;
-//         // console.log(this.mlist);
-//         if(this.mlist.length==0){
-//           this.isempty=true;
-//            console.log(this.mlist);
-//         }
-    
-//       },
-//       err => {
-
-//       }
-//     )
-//   }
+  getMovies() {
+    //this.movies.getAll()
+    this._moviesservice.getAll().subscribe(
+      res => {
+        this.mlist = res ;
+     //  console.log(this.mlist);
+        if(this.mlist.length==0){
+          this.isempty=true;
+           //console.log(this.mlist);
+        }
+      },
+      err => {}
+    )
+  }
  deleteMovie(id: any) {
-// this._moviesservice.deleteMovie(id).subscribe(
-//   req=> {
-//     this.getMovies();
-// //console.log("Delted successfully")
-// },
-// err=>{
+this._moviesservice.deleteMovie(id);
+  this.snackbar.open("Deleted Successfully", "Succes", {duration: 5000})
+    this.getMovies();
+//console.log("Delted successfully")
 
-// }
-// );
+
+
    }
   editMovie(id: any) {
     this.router.navigate(['/Create', id])
-//     console.log(id)
-// this.isedit=true;
+   console.log(id);
+//  this.isedit=true;
   }
   getDetails(id: any) {
     

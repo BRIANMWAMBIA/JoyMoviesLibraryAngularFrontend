@@ -1,3 +1,4 @@
+import { SharedComponentsModule } from './../../shared-components/shared-components.module';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
@@ -25,6 +26,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
 AuthRoutingModule,
     SharedMaterialModule,
+    SharedComponentsModule,
     ReactiveFormsModule,
     FormsModule,
     FlexLayoutModule

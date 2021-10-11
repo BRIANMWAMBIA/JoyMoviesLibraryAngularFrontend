@@ -4,6 +4,7 @@ import { Component, OnInit, Input } from '@angular/core';
 
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-add-movie',
@@ -14,11 +15,12 @@ export class AddMovieComponent implements OnInit {
   movieForm!: FormGroup;
   movie!: any;
   upMovie!: IMovies;
-   id!: number;
+   id!: any ;
   constructor(
     private route: ActivatedRoute,
     private fb: FormBuilder,
     private _moviesservice: MoviesService,
+    private snackbar: MatSnackBar,
     private router: Router
   ) { }
 
@@ -29,30 +31,27 @@ export class AddMovieComponent implements OnInit {
     if (this.id == null)
       this.initForm();
     else{
-      // this.updateForm();
-   
+      this.populateForm();
     }
 
     // console.log(this.movie );
   }
-  // updateForm(){
-  //   this._moviesservice.getById(this.id).subscribe(
+  populateForm(){
+  this._moviesservice.getById(this.id).subscribe(res=>{
+    this.movie=res  as IMovies;
+        //console.log(this.movie);
+        this.movieForm = this.fb.group({
+          id: [this.movie.Id, {}],
+          title: [this.movie.Title, {}],
+          category: [this.movie.Category, {}],
+          Type: [this.movie.type, {}],
+          mainActor: [this.movie.Main_Actor, {}],
+          description: [this.movie.Description, {}],
 
-  //     res => {
-  //       this.movie = res;
-  //       console.log(this.movie);
-  //       this.movieForm = this.fb.group({
-  //         id: [this.movie.Id, {}],
-  //         title: [this.movie.Title, {}],
-  //         category: [this.movie.Category, {}],
-  //         Type: [this.movie.type, {}],
-  //         mainActor: [this.movie.Main_Actor, {}],
-  //         description: [this.movie.Description, {}],
-
-  //       });
-  //     }
-  //   );
-  // }
+        });
+      })
+    
+  }
 
   initForm() {
     this.movieForm = this.fb.group({
@@ -69,7 +68,7 @@ export class AddMovieComponent implements OnInit {
   submitForm(form: any) {
     // console.log(form.title);
     this.upMovie = {
-      // Id: form.id,
+      Id: form.id,
       Title: form.title,
       Category: form.category,
       type: form.Type,
@@ -84,7 +83,7 @@ export class AddMovieComponent implements OnInit {
       this.newMovie(this.upMovie);
 
     else {
-      // this.editMovie(id, this.upMovie);
+      this.editMovie(this.id,this.upMovie);
       //console.log(this.upMovie);
       this.router.navigate(['/Movies']);
     }
@@ -95,8 +94,9 @@ export class AddMovieComponent implements OnInit {
 
       // this.movies.addNew(mov);
       this._moviesservice.addNew(form).then(res => {
-         console.log("SUCCESS");
+         //console.log("SUCCESS");
         //reset the  form
+        this.snackbar.open("Movie Saved", "success", { duration: 5000, panelClass: ['green-snackbar'] });
         this.initForm();
       }
        
@@ -106,15 +106,14 @@ export class AddMovieComponent implements OnInit {
     }
   }
 
-  // editMovie(id: any, form: IMovies) {
-  //   this._moviesservice.editMovie(id, form).subscribe(
-  //     res => {
-
-  //     },
-  //     err => { }
-  //   )
-  //   //console.log(form,id);
-  // }
+  editMovie(id: string, form: IMovies) {
+    this._moviesservice.editMovie(id,form);
+    this.snackbar.open("Updated Successfully", "Success",{duration: 5000});
+    this.router.navigate(['/Movies']);
+     
+    
+    //console.log(form,id);
+  }
 }
 
 
