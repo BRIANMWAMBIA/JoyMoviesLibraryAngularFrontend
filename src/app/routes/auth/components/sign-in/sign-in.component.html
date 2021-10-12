@@ -1,7 +1,14 @@
 <section fxLayout="column">
+ 
     <div>
         <h1>SIGN IN</h1>
     </div>
+    <br>
+    <div style="cursor: pointer;">
+        <span (click)="anonymousLogIn()">sign in Anonymously</span>
+    </div>
+    <br>
+   
     <div>
         <form [formGroup]="loginForm" (ngSubmit)="signin(loginForm.value)" fxLayout="column">
             <mat-form-field fxLayout="column">

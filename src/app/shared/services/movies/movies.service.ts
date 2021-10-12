@@ -60,7 +60,6 @@ export class MoviesService {
   constructor(public afs: AngularFirestore){ 
     this.movieCollection= this.afs.collection<IMovies>('Movies');
   }
-
   addNew(movie:any) {
     //console.log("from movie service");
     //console.log(movie);
@@ -75,11 +74,7 @@ export class MoviesService {
        const data = a.payload.doc.data() as IMovies;
        data.Id= a.payload.doc.id;
        return data;
-     })))
-   
-
-
-   
+     }))) 
   }
   getById(id: string) {
     this.movieDoc=this.afs.doc(`Movies/${id}`);

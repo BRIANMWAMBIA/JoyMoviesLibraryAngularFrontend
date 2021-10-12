@@ -1,6 +1,7 @@
 section {
     justify-content: center;
     align-items: center;
+    min-height: 100vh;
 }
 .movie{
     width: 100%;

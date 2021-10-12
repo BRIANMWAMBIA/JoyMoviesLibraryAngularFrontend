@@ -2,32 +2,32 @@
     <nav fxLayout>
         <ul class="bottom_nav_item" fxLayout>
             <li>
-                <a class="nav_item" fxLayout="column" [routerLink]="['/Create']">
-                    <mat-icon>redeem</mat-icon>
+                <a class="nav_item" fxLayout="column" [routerLink]="['/books/add']">
+                    <mat-icon>library_add</mat-icon>
                     <span>Add book</span>
                 </a>
             </li>
             <li>
                 <a routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="nav_item" fxLayout="column" [routerLink]="['/Create']">
-                    <mat-icon>redeem</mat-icon>
+                    <mat-icon>library_add</mat-icon>
                     <span>Add Movie</span>
                 </a>
             </li>
             <li>
                 <a routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="nav_item" fxLayout="column" [routerLink]="['/Movies']">
-                    <mat-icon>redeem</mat-icon>
+                    <mat-icon>list</mat-icon>
                     <span>Movies</span>
                 </a>
             </li>
             <li>
                 <a routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="nav_item" fxLayout="column" [routerLink]="['/books']">
-                    <mat-icon>redeem</mat-icon>
+                    <mat-icon>list</mat-icon>
                     <span>Books</span>
                 </a>
             </li>
             <li>
                 <a routerLinkActive="active"  class="nav_item" fxLayout="column">
-                    <mat-icon>redeem</mat-icon>
+                    <mat-icon>account_circle</mat-icon>
                     <span (click)="logout()">Log out</span>
                 </a>
             </li>

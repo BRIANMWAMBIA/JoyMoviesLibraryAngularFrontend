@@ -28,31 +28,11 @@ export class AddMovieComponent implements OnInit {
     //  const id=  this.route.snapshot.params.id;
     this.id = this.route.snapshot.params.id;
     // console.log(id);
-    if (this.id == null)
-      this.initForm();
-    else{
-      this.populateForm();
-    }
-
-    // console.log(this.movie );
-  }
-  populateForm(){
-  this._moviesservice.getById(this.id).subscribe(res=>{
-    this.movie=res  as IMovies;
-        //console.log(this.movie);
-        this.movieForm = this.fb.group({
-          id: [this.movie.Id, {}],
-          title: [this.movie.Title, {}],
-          category: [this.movie.Category, {}],
-          Type: [this.movie.type, {}],
-          mainActor: [this.movie.Main_Actor, {}],
-          description: [this.movie.Description, {}],
-
-        });
-      })
     
+      this.initForm();
+ 
   }
-
+ 
   initForm() {
     this.movieForm = this.fb.group({
       id: ['', {}],
@@ -82,12 +62,6 @@ export class AddMovieComponent implements OnInit {
     if (id == null)
       this.newMovie(this.upMovie);
 
-    else {
-      this.editMovie(this.id,this.upMovie);
-      //console.log(this.upMovie);
-      this.router.navigate(['/Movies']);
-    }
-
   }
   newMovie(form: any) {
     {
@@ -106,14 +80,7 @@ export class AddMovieComponent implements OnInit {
     }
   }
 
-  editMovie(id: string, form: IMovies) {
-    this._moviesservice.editMovie(id,form);
-    this.snackbar.open("Updated Successfully", "Success",{duration: 5000});
-    this.router.navigate(['/Movies']);
-     
-    
-    //console.log(form,id);
-  }
+
 }
 
 

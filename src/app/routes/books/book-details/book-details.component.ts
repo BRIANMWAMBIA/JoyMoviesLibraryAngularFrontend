@@ -1,3 +1,4 @@
+import { ActivatedRoute } from '@angular/router';
 import { IBooks } from './../../../shared/models/book.interface';
 import { IMovies } from './../../../shared/models/movie.Interface';
 import { BooksService } from './../../../shared/services/books/books.service';
@@ -10,12 +11,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookDetailsComponent implements OnInit {
 book!: IBooks;
-  constructor(private _bookServices: BooksService) { }
+id!: string;
+  constructor(private _bookServices: BooksService,
+    private route: ActivatedRoute
+    ) { }
 
   ngOnInit(): void {
+this.getDetails();
   }
 getDetails(){
-  this._bookServices.getById(1).subscribe(res=>{
+  this.id= this.route.snapshot.params.id;
+  this._bookServices.getById(this.id).subscribe(res=>{
 this.book=res as IBooks;
   },
   err=>{

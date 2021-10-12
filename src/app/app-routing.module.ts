@@ -9,6 +9,7 @@ import { MovieListComponent } from './routes/movies/movie-list/movie-list.compon
 import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AngularFireAuthGuard } from '@angular/fire/compat/auth-guard';
+import { EditMovieComponent } from './routes/movies/edit-movie/edit-movie.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -17,7 +18,7 @@ const routes: Routes = [
   {path: 'books', loadChildren: () => import('./books.module').then(m=>m.BooksModule), canActivate: [AngularFireAuthGuard]},
 
   { path: 'Create',component: AddMovieComponent, canActivate: [AngularFireAuthGuard] },
-  { path: 'Create/:id',component: AddMovieComponent,canActivate: [AngularFireAuthGuard] },
+  { path: 'edit/:id',component: EditMovieComponent,canActivate: [AngularFireAuthGuard] },
 
   { path: 'Movies', component: MovieListComponent, canActivate: [AngularFireAuthGuard]},
   { path: 'MovieDetails/:id', component: MovieDetailsComponent, canActivate: [AngularFireAuthGuard] },

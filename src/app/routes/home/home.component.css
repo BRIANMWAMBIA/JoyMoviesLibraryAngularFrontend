@@ -6,6 +6,7 @@ section{
     background-color: rgb(222, 222, 222);
     margin-bottom: 2rem;
     padding-bottom: 2.5rem;
+    min-height: 100vh;
 }
 .main-container{
     justify-content: space-around;

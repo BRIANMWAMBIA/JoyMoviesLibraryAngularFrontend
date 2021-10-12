@@ -14,8 +14,8 @@ export class SignInComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private auth: AngularFireAuth,
-   private router: Router,
-   private snackbar: MatSnackBar
+    private router: Router,
+    private snackbar: MatSnackBar
   ) { }
 
   ngOnInit(): void {
@@ -27,13 +27,20 @@ export class SignInComponent implements OnInit {
       password: ['', {}]
     })
   }
-signin(form: any){
-  this.auth.signInWithEmailAndPassword(form.email,form.password).then(user=>{
-    this.snackbar.open("Logged In", "success", { duration: 3000, panelClass: ['green-snackbar'] } )
-    this.router.navigate(['/home']);
-  }).catch(err => {
-    if(err.code=== "auth/invalid-email" || err.code==="auth/wrong-password")
-    this.snackbar.open("Check your credentials and try again", "failed",{duration: 5000, panelClass:['green-snackbar']})
-  })
-}
+  signin(form: any) {
+    this.auth.signInWithEmailAndPassword(form.email, form.password).then(user => {
+      this.snackbar.open("Logged In", "success", { duration: 3000, panelClass: ['green-snackbar'] })
+      this.router.navigate(['/home']);
+    }).catch(err => {
+      if (err.code === "auth/invalid-email" || err.code === "auth/wrong-password")
+        this.snackbar.open("Check your credentials and try again", "failed", { duration: 5000, panelClass: ['green-snackbar'] })
+    })
+  }
+  anonymousLogIn() {
+    this.auth.signInAnonymously().then(user => {
+      this.snackbar.open("Logged In Anonymously", "success", { duration: 3000, panelClass: ['green-snackbar'] })
+      this.router.navigate(['/home']);
+    });
+  }
+ 
 }

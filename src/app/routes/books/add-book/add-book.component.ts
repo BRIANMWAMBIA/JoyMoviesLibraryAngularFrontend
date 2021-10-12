@@ -1,3 +1,4 @@
+import { IBooks } from './../../../shared/models/book.interface';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { IMovies } from './../../../shared/models/movie.Interface';
 
@@ -10,34 +11,36 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./add-book.component.css']
 })
 export class AddBookComponent implements OnInit {
-bookForm!: FormGroup;
+  bookForm!: FormGroup;
   constructor(private _bookServices: BooksService,
     private fb: FormBuilder,
     private snackbar: MatSnackBar
-    ) { }
+  ) { }
 
   ngOnInit(): void {
     this.initForm();
   }
   initForm() {
-    this.bookForm=this.fb.group({
-      id: ['',{}],
-      title: ['',{}],
-      author: ['',{}],
-      pages: ['',{}],
-      type: ['',{}],
-      about: ['',{}]
+    this.bookForm = this.fb.group({
+      id: ['', {}],
+      title: ['', {}],
+      author: ['', {}],
+      pages: ['', {}],
+      type: ['', {}],
+      about: ['', {}]
     })
   }
-  submitForm( movie: IMovies) {
-    this._bookServices.addNew(movie).subscribe(res=>{
-      this.snackbar.open("Submitted Successfully", "Success", {duration: 5000})
-this.initForm();
-
-    },
-    err=>{
-
-    }
-      )
- }
+  submitForm(form: IBooks) {
+     // this.movies.addNew(mov);
+     this._bookServices.addNew(form).then(res => {
+      //console.log("SUCCESS");
+     //reset the  form
+     this.snackbar.open("Movie Saved", "success", { duration: 5000, panelClass: ['green-snackbar'] });
+     this.initForm();
+   }
+    
+   ).catch(err=>{
+     console.log(err);
+   })
+  }
 }

@@ -1,0 +1,39 @@
+<section fxLayout="column">
+    <div class="container" fxLayout="column">
+        <div class="head">
+            <span style="color: rgba(100, 100, 100); font-size: 30px;">Edit Book</span>
+        </div>
+        <div class="form" fxLayout>
+            <form [formGroup]="bookForm" (ngSubmit)="submitForm(bookForm.value)" fxLayout="column">
+                <input type="hidden" formControlName="id">
+                <mat-form-field class="input width-100" fxLayout="column">
+                    <mat-label>Title</mat-label>
+                    <input type="text" formControlName="title" matInput>
+                </mat-form-field>
+                <mat-form-field class="width-100" fxLayout="column">
+                    <mat-label>Pages</mat-label>
+                    <input type="number" formControlName="pages" matInput>
+                </mat-form-field>
+                <mat-form-field class=" width-100" fxLayout="column">
+                    <mat-label>Type</mat-label>
+                    <input type="text" formControlName="type" matInput>
+                </mat-form-field>
+                <mat-form-field class="input width-100" fxLayout="column">
+                    <mat-label>Author</mat-label>
+                    <input formControlName="author" matInput>
+                </mat-form-field>
+                <mat-form-field class="input width-100" fxLayout="column">
+                    <mat-label>About</mat-label>
+                    <input type="text" formControlName="about" matInput>
+                </mat-form-field>
+                <div class="btn" fxLayout>
+                    <button class="save" type="submit"> Save</button>
+                </div>
+                <div class="back" fxLayout>
+                    <a [routerLink]="['/books']">Back to List</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+<app-nav-bar></app-nav-bar>

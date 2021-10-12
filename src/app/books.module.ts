@@ -9,9 +9,9 @@ import { SharedMaterialModule } from './shared/shared-material/shared-material/s
 import { AddBookComponent } from './routes/books/add-book/add-book.component';
 import { BookDetailsComponent } from './routes/books/book-details/book-details.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { HttpClientModule } from '@angular/common/http';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedComponentsModule } from './shared-components/shared-components.module';
+import { EditBookComponent } from './routes/books/edit-book/edit-book.component';
 
 
 
@@ -19,7 +19,8 @@ import { SharedComponentsModule } from './shared-components/shared-components.mo
   declarations: [
     AddBookComponent,
     BookDetailsComponent,
-    BookListComponent
+    BookListComponent,
+    EditBookComponent
   ],
   imports: [
     CommonModule,
@@ -34,6 +35,7 @@ import { SharedComponentsModule } from './shared-components/shared-components.mo
   ],
   exports: [AddBookComponent,
     BookDetailsComponent,
-    BookListComponent]
+    BookListComponent,
+  EditBookComponent]
 })
 export class BooksModule { }

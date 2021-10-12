@@ -50,7 +50,7 @@ this._moviesservice.deleteMovie(id);
 
    }
   editMovie(id: any) {
-    this.router.navigate(['/Create', id])
+    this.router.navigate(['/edit', id])
    console.log(id);
 //  this.isedit=true;
   }
