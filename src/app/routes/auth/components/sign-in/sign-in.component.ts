@@ -17,9 +17,14 @@ export class SignInComponent implements OnInit {
     private auth: AuthService,
     private router: Router,
     private snackbar: MatSnackBar
-  ) { }
+  ) {
+  
+   }
 
-  ngOnInit(): void {
+  ngOnInit(): void { 
+    if(this.auth.isLogged) {
+      this.router.navigate(['/home'])
+    }
     this.initForm();
   }
   initForm() {

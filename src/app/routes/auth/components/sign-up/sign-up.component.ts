@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { AuthService } from './../../../../shared/services/auth/auth.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
@@ -14,10 +15,14 @@ export class SignUpComponent implements OnInit {
 
   constructor(
     public auth: AuthService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
+    if(this.auth.isLogged) {
+      this.router.navigate(['/home'])
+    }
     this.initForm();
   }
   initForm() {

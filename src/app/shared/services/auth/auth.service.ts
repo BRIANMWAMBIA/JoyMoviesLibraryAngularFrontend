@@ -62,6 +62,7 @@ export class AuthService {
   signOut(){
     this.auth.signOut().then(user=>{
       this.snackbar.open("Logged out", "logged out", {duration: 3000})
+      this.consts.remove_user();
       this.router.navigate(['/auth'])
     }).catch(err=>{
       console.log(err)
