@@ -12,6 +12,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class AddBookComponent implements OnInit {
   bookForm!: FormGroup;
+  book!: IBooks;
   constructor(private _bookServices: BooksService,
     private fb: FormBuilder,
     private snackbar: MatSnackBar
@@ -30,9 +31,17 @@ export class AddBookComponent implements OnInit {
       about: ['', {}]
     })
   }
-  submitForm(form: IBooks) {
-     // this.movies.addNew(mov);
-     this._bookServices.addNew(form).then(res => {
+  submitForm(form: any) {
+    this.book = {
+    
+      Title: form.title,
+      Pages: form.pages,
+      Type: form.type,
+      Author: form.author,
+      About: form.about
+
+    }
+     this._bookServices.addNew(this.book).then(res => {
       //console.log("SUCCESS");
      //reset the  form
      this.snackbar.open("Movie Saved", "success", { duration: 5000, panelClass: ['green-snackbar'] });

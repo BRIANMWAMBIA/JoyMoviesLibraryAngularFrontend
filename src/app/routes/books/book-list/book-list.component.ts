@@ -34,6 +34,7 @@ export class BookListComponent implements OnInit {
 
     }
     )
+    
   }
   getDetails(id: any) {
     console.log("working");
@@ -41,11 +42,14 @@ export class BookListComponent implements OnInit {
   this.router.navigate(['/books/details',id]);
 
   }
-  deleteBook(id: any) {
-    console.log("Deleted successfully");
-    this._bookServices.deleteBook(id);
-  this.snackbar.open("Deleted Successfully", "Succes", {duration: 5000})
-    this.getAll();
+  deleteBook(id: any) { 
+    if(confirm('You Are About To Delete This Book')) {
+      console.log("Deleted successfully");
+      this._bookServices.deleteBook(id);
+    this.snackbar.open("Deleted Successfully", "Succes", {duration: 5000})
+      this.getAll();
+    }
+ 
   }
   editBook(id: any){
 console.log("edited successfully");

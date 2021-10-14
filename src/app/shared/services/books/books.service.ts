@@ -46,7 +46,8 @@ export class BooksService {
      map(actions => actions.map(a =>{
        const data = a.payload.doc.data() as IBooks;
        data.Id= a.payload.doc.id;
-       return data;
+       console.log(data);
+       return data; 
      }))) 
   }
   getById(id: string) {

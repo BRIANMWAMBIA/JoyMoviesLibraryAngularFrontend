@@ -12,15 +12,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MovieListComponent implements OnInit {
   mlist: IMovies[] = [];
- isempty: boolean=false;
-   
-   movieDetails!: IMovies;
-  
+  isempty: boolean = false;
+
+  movieDetails!: IMovies;
+
   constructor(
     private _moviesservice: MoviesService,
-     private router: Router,
-     private snackbar: MatSnackBar
-     ) { }
+    private router: Router,
+    private snackbar: MatSnackBar
+  ) { }
 
   ngOnInit(): void {
     this.getMovies();
@@ -30,35 +30,34 @@ export class MovieListComponent implements OnInit {
     //this.movies.getAll()
     this._moviesservice.getAll().subscribe(
       res => {
-        this.mlist = res ;
-     //  console.log(this.mlist);
-        if(this.mlist.length==0){
-          this.isempty=true;
-           //console.log(this.mlist);
+        this.mlist = res;
+        //  console.log(this.mlist);
+        if (this.mlist.length == 0) {
+          this.isempty = true;
+          //console.log(this.mlist);
         }
       },
-      err => {}
+      err => { }
     )
   }
- deleteMovie(id: any) {
-this._moviesservice.deleteMovie(id);
-  this.snackbar.open("Deleted Successfully", "Succes", {duration: 5000})
-    this.getMovies();
-//console.log("Delted successfully")
-
-
-
-   }
+  deleteMovie(id: any) {
+    if (confirm('You are About to Delete This Movie')) {
+      this._moviesservice.deleteMovie(id);
+      this.snackbar.open("Deleted Successfully", "Succes", { duration: 5000 })
+      this.getMovies();
+      //console.log("Delted successfully")
+    }
+  }
   editMovie(id: any) {
     this.router.navigate(['/edit', id])
-   console.log(id);
-//  this.isedit=true;
+    console.log(id);
+    //  this.isedit=true;
   }
   getDetails(id: any) {
-    
-  this.router.navigate(['/MovieDetails',id]);
+
+    this.router.navigate(['/MovieDetails', id]);
     // this.ismovieclicked=true;
-   
+
   }
- 
+
 }

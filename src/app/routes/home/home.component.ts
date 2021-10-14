@@ -1,3 +1,4 @@
+import { AuthService } from './../../shared/services/auth/auth.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
@@ -9,20 +10,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
+islogged!: boolean;
   constructor(
-    private auth: AngularFireAuth,
-    private router: Router,
-    private snackbar: MatSnackBar
-  ) { }
+    private auth: AuthService,
+   
+  ) {
+    
+   }
 
   ngOnInit(): void {
+    this.islogged=this.auth.isLogged;
   }
   logout() {
-    this.auth.signOut().then(res => {
-      this.snackbar.open("Logged out", "logged out", {duration: 3000})
-      this.router.navigate(['/auth'])
-    });
+    this.auth.signOut()
   }
+
 }
 

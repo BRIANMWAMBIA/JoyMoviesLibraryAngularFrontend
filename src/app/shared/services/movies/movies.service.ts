@@ -73,6 +73,7 @@ export class MoviesService {
      map(actions => actions.map(a =>{
        const data = a.payload.doc.data() as IMovies;
        data.Id= a.payload.doc.id;
+       console.log(data);
        return data;
      }))) 
   }

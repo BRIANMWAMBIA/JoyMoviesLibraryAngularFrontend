@@ -1,7 +1,14 @@
 
 <section fxLayout="column">   
-    <div class="main-container" fxLayout="column">
-      
+    <div class="main-container" fxLayout>
+        <a *ngIf="islogged" routerLinkActive="active"  class="nav_item" (click)="logout()" fxLayout="column">
+            <mat-icon>account_circle</mat-icon>
+         
+        </a>
+        <a *ngIf="!islogged" routerLinkActive="active" [routerLink]="['/auth']" routerLinkActive="router-link-active"   class="nav_item"  fxLayout="column">
+            <mat-icon>account_circle</mat-icon>
+         
+        </a>
     </div>
 </section>
 <app-nav-bar></app-nav-bar>

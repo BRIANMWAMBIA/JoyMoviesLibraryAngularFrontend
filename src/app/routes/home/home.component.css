@@ -9,8 +9,7 @@ section{
     min-height: 100vh;
 }
 .main-container{
-    justify-content: space-around;
-     align-items:center ;
+    justify-content: flex-end;
     width: 360px;
     height: 640px;
     padding: 1rem;
@@ -21,4 +20,8 @@ section{
     width: 138px;
     height: 77px;
     background-color: rgba(196, 196, 196, 1);
+}
+.nav_item{
+    cursor: pointer;
+    text-decoration: none;
 }
